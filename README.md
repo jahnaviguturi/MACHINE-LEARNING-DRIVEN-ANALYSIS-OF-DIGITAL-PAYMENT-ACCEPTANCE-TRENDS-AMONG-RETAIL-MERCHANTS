@@ -96,3 +96,26 @@ The training workflow reads `media/DigitalPay_balanced_dataset (1).csv`, selects
 - This project uses SQLite for local development.
 - The included `db.sqlite3`, dataset, model, and scaler files are part of the current project state.
 - For production deployment, move sensitive Django settings such as `SECRET_KEY` and `DEBUG` into environment variables.
+
+## Deployment From GitHub
+
+This Django project cannot be hosted directly with GitHub Pages because GitHub Pages only serves static HTML, CSS, and JavaScript. To run the Django backend, deploy the GitHub repository to a Python hosting service such as Render.
+
+### Render Deployment
+
+1. Push the latest code to GitHub.
+2. Go to [Render](https://render.com/) and sign in.
+3. Select **New +** and choose **Blueprint**.
+4. Connect this GitHub repository.
+5. Render will detect `render.yaml` and create the web service.
+6. Wait for the build to complete.
+7. Open the generated Render URL.
+
+The project includes:
+
+- `requirements.txt` for Python dependencies
+- `Procfile` for the web process
+- `runtime.txt` for the Python version
+- `render.yaml` for Render deployment settings
+
+For a production system, use a persistent database such as PostgreSQL instead of SQLite.
